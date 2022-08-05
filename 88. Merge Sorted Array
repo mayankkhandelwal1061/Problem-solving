@@ -1,0 +1,23 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        num1ptr=m-1
+        num2ptr=n-1
+        currentlast=m+n-1
+    
+        while(num2ptr>=0):
+            if num1ptr>=0:
+                if nums1[num1ptr]>nums2[num2ptr]:
+                    nums1[currentlast]=nums1[num1ptr]
+                    num1ptr-=1
+                else:
+                    nums1[currentlast]=nums2[num2ptr]
+                    num2ptr-=1
+            else:
+                nums1[currentlast] =nums2[num2ptr]
+                num2ptr-=1
+            currentlast-=1    
+            
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        
